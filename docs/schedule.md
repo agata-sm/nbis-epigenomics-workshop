@@ -6,9 +6,10 @@ DNA methylation
 
 ChIP-seq and ATAC-seq: basic processing and QC workflow
 
-<!-- 
+
 Let's link a lecture [here](lectures/Meyer_Liu_bias_nihms680120.pdf)
- -->
+
+Let's link a tutorial [here](tutorials/chipseq_proc/tut-chipseq-proc.md)
 
 ## Day 3
 
