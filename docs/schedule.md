@@ -19,7 +19,7 @@ lecture longer ca 1h (45 + questions): intro to ChIPseq processing, intro to DNA
 
 lectures short: ca 15 mins for presentation of particular topic for the practicals
 
-
+fika: 15:00 each day
 
 
 ## Day 1
