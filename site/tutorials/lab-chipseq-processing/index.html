@@ -274,7 +274,7 @@
 <p><a href="#CumulativeEnrichment">cumulative enrichment</a></p>
 </li>
 <li>
-<p><a href="#BAMClustering">BAM clustering</a></p>
+<p><a href="#BAMClustering">sample clustering</a></p>
 </li>
 </ul>
 <h3 id="strand-cross-correlation">Strand cross-correlation <a name="Xcor"></a></h3>
@@ -362,31 +362,21 @@ module unload phantompeakqualtools/1.1
 </thead>
 <tbody>
 <tr>
-<td><img src="../figures/lab-processing/ENCFF000PEDxcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/></td>
-<td><img src="../figures/lab-processing/ENCFF000PEExcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/></td>
-<td><img src="../figures/lab-processing/ENCFF000PETxcorrelationplot.png" alt="xcor, hela input" style="width: 200px;"/></td>
+<td><img alt="xcor, hela chip" src="../../figures/lab-processing/ENCFF000PEDxcorrelationplot.png" /></td>
+<td><img alt="cor, hela chip" src="../../figures/lab-processing/ENCFF000PEExcorrelationplot.png" /></td>
+<td><img alt="xcor, hela input" src="../../figures/lab-processing/ENCFF000PETxcorrelationplot.png" /></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<hr />
-<table>
-<thead>
-<tr>
-<th>Figure 1. <br> HeLa, REST ChIP  <br>  replicate 1, QScore:2</th>
-<th>Figure 2. <br> HeLa, REST ChIP <br> replicate 2, QScore:2</th>
-<th>Figure 3. <br> HeLa, input <br> QScore:-1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="../figures/lab-processing/ENCFF000PEDxcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/></td>
-<td><img src="../figures/lab-processing/ENCFF000PEExcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/></td>
-<td><img src="../figures/lab-processing/ENCFF000PETxcorrelationplot.png" alt="xcor, hela input" style="width: 200px;"/></td>
-</tr>
-</tbody>
-</table>
-<hr />
+<!-- 
+-----
+|Figure 1. <br> HeLa, REST ChIP  <br>  replicate 1, QScore:2 | Figure 2. <br> HeLa, REST ChIP <br> replicate 2, QScore:2  | Figure 3. <br> HeLa, input <br> QScore:-1                                         |
+| --- | ----------- | --------- |
+|<img src="../figures/lab-processing/ENCFF000PEDxcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/>| <img src="../figures/lab-processing/ENCFF000PEExcorrelationplot.png" alt="xcor, hela chip" style="width: 200px;"/>| <img src="../figures/lab-processing/ENCFF000PETxcorrelationplot.png" alt="xcor, hela input" style="width: 200px;"/>|
+
+ -->
+
 <table>
 <thead>
 <tr>
@@ -397,9 +387,9 @@ module unload phantompeakqualtools/1.1
 </thead>
 <tbody>
 <tr>
-<td><img src="../figures/lab-processing/ENCFF000PMGppqtxcorrelationplot.png" alt="xcor, hepg2 chip" style="width: 200px;"/></td>
-<td><img src="../figures/lab-processing/ENCFF000PMJppqtxcorrelationplot.png" alt="xcor, hepg2 chip" style="width: 200px;"/></td>
-<td><img src="../figures/lab-processing/ENCFF000POMppqtxcorrelationplot.png" alt="xcor, hepg2 input" style="width: 200px;"/></td>
+<td><img alt="xcor, hepg2 chip" src="../../figures/lab-processing/ENCFF000PMGppqtxcorrelationplot.png" /></td>
+<td><img alt="xcor, hepg2 chip" src="../../figures/lab-processing/ENCFF000PMJppqtxcorrelationplot.png" /></td>
+<td><img alt="cor, hepg2 input" src="../../figures/lab-processing/ENCFF000POMppqtxcorrelationplot.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -425,7 +415,7 @@ module unload phantompeakqualtools/1.1
 module load java/sun_jdk1.8.0_40
 module load picard/2.10.3
 
-cd ~/
+cd ~
 mkdir ~/chipseq/analysis/bam_preproc
 cd ~/chipseq/analysis/bam_preproc
 
@@ -435,7 +425,7 @@ M=dedup_metrics.txt VALIDATION_STRINGENCY=LENIENT \
 REMOVE_DUPLICATES=true ASSUME_SORTED=true
 </code></pre>
 
-<p>Check out <code>dedup_metrics.txt</code></p>
+<p>Check out <code>dedup_metrics.txt</code> for details of this step.</p>
 <p><strong>Second, reads mapped to <a href="https://sites.google.com/site/anshulkundaje/projects/blacklists">ENCODE blacklisted regions</a> are removed</strong></p>
 <pre><code class="bash">module load NGSUtils/0.5.9
 
@@ -456,7 +446,7 @@ module unload picard/1.141
 module unload NGSUtils/0.5.9
 </code></pre>
 
-<p><strong>Finally</strong> we can compute the <strong>read coverage normalised to 1x coverage</strong> using tool bamCoveraged from <a href="http://deeptools.readthedocs.io/en/latest/content/tools/bamCoverage.html">deepTools</a>, a set of tools developed for ChIP-seq data analysis and visualisation. Normalised tracks enable comparing libraries sequenced to a different depth when viewing them in a genome browser such as <a href="http://deeptools.readthedocs.io/en/latest/content/tools/bamCoverage.html">IGV</a>.</p>
+<p><strong>Finally</strong> we can compute the <strong>read coverage normalised to 1x coverage</strong> using tool <code>bamCoverage</code> from <a href="http://deeptools.readthedocs.io/en/latest/content/tools/bamCoverage.html">deepTools</a>, a set of tools developed for ChIP-seq data analysis and visualisation. Normalised tracks enable comparing libraries sequenced to a different depth when viewing them in a genome browser such as <a href="http://deeptools.readthedocs.io/en/latest/content/tools/bamCoverage.html">IGV</a>.</p>
 <p>We are still working with subset of data (chromosomes 1 and 2) hence the <strong>effective genome size</strong> used here is 492449994 (4.9e8). For hg19 the effective genome size would be set to 2.45e9 (see <a href="http://www.nature.com/nbt/journal/v27/n1/fig_tab/nbt.1518_T1.html">publication</a>.</p>
 <p><strong>The reads are extended to 110 nt</strong> (the fragment length obtained from the cross correlation computation) and <strong>summarised in 50 bp bins</strong> (no smoothing).</p>
 <pre><code class="bash">module load deepTools/2.5.1
@@ -472,7 +462,7 @@ module unload deepTools/2.5.1
 <h3 id="cumulative-enrichment">Cumulative enrichment <a name="CumulativeEnrichment"></a></h3>
 <p><a href="http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html">Cumulative enrichment</a>, aka BAM fingerprint, is yet another way of checking the quality of ChIP-seq signal. It determines how well the signal in the ChIP-seq sample can be differentiated from the background distribution of reads in the control input sample.</p>
 <p>Cumulative enrichment is obtained by sampling indexed BAM files and plotting a profile of cumulative read coverages for each. All reads overlapping a window (bin) of the specified length are counted; these counts are sorted and the cumulative sum is finally plotted.</p>
-<p>For factors that will enrich well-defined, rather narrow regions, the resulting plot can be used to assess the strength of a ChIP, but the broader the enrichments are to be expected, the less clear the plot will be. Vice versa, if you do not know what kind of signal to expect, the fingerprint plot will give you a straight-forward indication of how careful you will have to be during your downstream analyses to separate biological noise from meaningful signal.</p>
+<p>For factors that will enrich well-defined, rather narrow regions (such as transcription factors), the resulting plot can be used to assess the strength of a ChIP, but the broader the enrichments are to be expected, the less clear the plot will be. Vice versa, if you do not know what kind of signal to expect, the fingerprint plot will give you a straight-forward indication of how careful you will have to be during your downstream analyses to separate biological noise from meaningful signal.</p>
 <p>To compute cumulative enrichment for HeLa REST ChIP and the corresponding input sample:</p>
 <pre><code class="bash">module load deepTools/2.5.1
 
@@ -485,11 +475,21 @@ plotFingerprint --bamfiles ENCFF000PED.chr12.rmdup.filt.sort.bam \
 module unload deepTools/2.5.1
 </code></pre>
 
-<p>Have a look at the <code>HeLa.fingerprint.pdf</code>, read deepTools <a href="http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html#what-the-plots-tell-you">"What the plots tell you?"</a> and answer
-- does it indicate a good sample quality, i.e. enrichment in ChIP samples and lack of enrichment in input?
-- how does it compare to similar plots generated for other libraries (shown below)?
-- can you tell which samples are ChIP and which are input?
-- are the cumulative enrichment plots in agreement with the cross-correlation metrics computed earlier?</p>
+<p>Have a look at the <code>HeLa.fingerprint.pdf</code>, read <code>deepTools</code> <a href="http://deeptools.readthedocs.io/en/latest/content/tools/plotFingerprint.html#what-the-plots-tell-you">"What the plots tell you?"</a> and answer</p>
+<ul>
+<li>
+<p>does it indicate a good sample quality, i.e. enrichment in ChIP samples and lack of enrichment in input?</p>
+</li>
+<li>
+<p>how does it compare to similar plots generated for other libraries (shown below)?</p>
+</li>
+<li>
+<p>can you tell which samples are ChIP and which are input?</p>
+</li>
+<li>
+<p>are the cumulative enrichment plots in agreement with the cross-correlation metrics computed earlier?</p>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -499,14 +499,15 @@ module unload deepTools/2.5.1
 </thead>
 <tbody>
 <tr>
-<td><img src="../figures/lab-processing/hepg2fingerprint.png" alt="fingerprint, hepg2" style="width: 280px;"/></td>
-<td><img src="../figures/lab-processing/sknshfingerprint.png" alt="fingerprint, sknsh" style="width: 280px;"/></td>
+<td><img alt="fingerprint, hepg2" src="../../figures/lab-processing/hepg2fingerprint.png" /></td>
+<td><img alt="fingerprint, sknsh" src="../../figures/lab-processing/sknshfingerprint.png" /></td>
 </tr>
 </tbody>
 </table>
+<p><br /></p>
 <h3 id="sample-clustering">Sample clustering <a name="BAMClustering"></a></h3>
 <p><strong>To assess overall similarity between libraries from different samples and data sets</strong> one can compute sample clustering heatmaps using <a href="http://deeptools.readthedocs.io/en/latest/content/tools/multiBamSummary.html">multiBamSummary</a> and [plotCorrelation](<a href="http://deeptools.readthedocs.io/en/latest/content/tools/multiBamSummary.html">multiBamSummary</a> in bins mode from <code>deepTools</code>.</p>
-<p>In this method the genome is divided into bins of specified size (--binSize parameter) and reads mapped to each bin are counted. The resulting signal profiles are used to cluster libraries to identify groups of similar signal profile.</p>
+<p>In this method the genome is divided into bins of specified size (<code>--binSize</code> parameter) and reads mapped to each bin are counted. The resulting signal profiles are used to cluster libraries to identify groups of similar signal profile.</p>
 <p>To avoid very long paths in the command line we will create sub-directories and link preprocessed bam files:</p>
 <pre><code class="bash">mkdir hela
 mkdir hepg2
@@ -519,7 +520,7 @@ ln -s /sw/share/compstore/courses/ngsintro/chipseq/data/bam/neural/* ./neural
 
 </code></pre>
 
-<p>Now we are ready to compute the read coverages for genomic regions for the BAM files for the entire genome using bin mode with <code>multiBamSummary</code> as well as to visualise sample correlation based on the output of multiBamSummary.</p>
+<p>Now we are ready to compute the read coverages for genomic regions for the BAM files for the entire genome using bin mode with <code>multiBamSummary</code> as well as to visualise sample correlation based on the output of <code>multiBamSummary</code>.</p>
 <pre><code class="bash">module load deepTools/2.5.1
 
 multiBamSummary bins --bamfiles hela/ENCFF000PED.chr12.rmdup.sort.bam \
@@ -541,17 +542,36 @@ plotCorrelation --corData multiBamArray_dT201_preproc_bam_chr12.npz \
 module unload deepTools/2.5.1
 </code></pre>
 
-<p>What do you think?
-- which samples are similar?
-- are the clustering results as you would have expected them to be?</p>
+<p>What do you think?</p>
+<ul>
+<li>
+<p>which samples are similar?</p>
+</li>
+<li>
+<p>are the clustering results as you would have expected them to be?</p>
+</li>
+</ul>
+<p><br />
+<br /></p>
 <h2 id="part-ii-identification-of-binding-sites">Part II: Identification of binding sites <a name="BindingSites"></a></h2>
-<p>Now we know so much more about the quality of our ChIP-seq data. In this section, we will
-- <a href="#PeakCalling">identify peaks, i.e. binding sites</a>
-- <a href="#ReproduciblePeaks">learn how to find reproducible peaks, detected consistently between replicates</a>
-- <a href="#MergedPeaks">prepare a merged list of all peaks detected in the experiment needed for down-stream analysis</a>
-- <a href="#QCPeaks">re-assess data quality using the identified peaks regions</a></p>
+<p>Now we know so much more about the quality of our ChIP-seq data. In this section, we will</p>
+<ul>
+<li>
+<p><a href="#PeakCalling">identify peaks, i.e. binding sites</a></p>
+</li>
+<li>
+<p><a href="#ReproduciblePeaks">learn how to find reproducible peaks, detected consistently between replicates</a></p>
+</li>
+<li>
+<p><a href="#MergedPeaks">prepare a merged list of all peaks detected in the experiment needed for down-stream analysis</a></p>
+</li>
+<li>
+<p><a href="#QCPeaks">re-assess data quality using the identified peaks regions</a></p>
+</li>
+</ul>
+<p><br /></p>
 <h3 id="peak-calling">Peak calling <a name="PeakCalling"></a></h3>
-<p>We will identify peaks in the ChIP-seq data using <strong>Model-based Analysis of ChIP-Seq <a href="https://github.com/taoliu/MACS">(MACS2)</a></strong>. MACS captures the influence of genome complexity to evaluate the significance of enriched ChIP regions and is one of the most popular peak callers performing well on data sets with good enrichment of transcription factors.</p>
+<p>We will identify peaks in the ChIP-seq data using <strong>Model-based Analysis of ChIP-Seq <a href="https://github.com/taoliu/MACS">(MACS2)</a></strong>. <code>MACS</code> captures the influence of genome complexity to evaluate the significance of enriched ChIP regions and is one of the most popular peak callers performing well on data sets with good enrichment of transcription factors.</p>
 <p>Note that <strong>peaks should be called on each replicate separately</strong> (not pooled across replicates) as these can be later on used to identify peaks consistently found across replicates preparing a <strong>consensus peaks set for down-stream analysis</strong> of differential occupancy, annotations etc.</p>
 <p>To avoid long paths in the command line let's create links to BAM files with ChIP and input data.</p>
 <pre><code class="bash">mkdir ~/chipseq/analysis/peak_calling
@@ -563,15 +583,29 @@ ln -s /sw/share/compstore/courses/ngsintro/chipseq/data/bam/hela/ENCFF000PET.chr
 ./ENCFF000PET.preproc.bam
 </code></pre>
 
-<p>Before we jump to running MACS we need to <strong>look at parameters</strong> as there are several of them affecting peak calling as well as reporting the results. It is important to understand them to be able to modify the command to the needs of your data set.</p>
-<p>Parameters:
-* -t: treatment
-* -c: control
-* -f: file format
-* -n: output file names
-* -g: genome size, with common ones already encoded in MACS eg. -g hs   =  -g 2.7e9; -g mm   =  -g 1.87e9; -g ce   =  -g 9e7; -g dm   =  -g 1.2e8. In our case -g = 04.9e8 since we are till working on only on chromosomes 1 and 2 only
-* -q 0.01: q value (FDR) cutoff for reporting peaks; this is recommended over reporting raw (un-adjusted) p values.</p>
-<p>Let's run MACS2 now. MACS prints messages as it progresses through different stages of the process. This step may take more than 10 minutes.</p>
+<p>Before we run <code>MACS</code> we need to <strong>look at parameters</strong> as there are several of them affecting peak calling as well as reporting the results. It is important to understand them to be able to modify the command to the needs of your data set.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><code>-t</code>: treatment</p>
+</li>
+<li>
+<p><code>-c</code>: control</p>
+</li>
+<li>
+<p><code>-f</code>: file format</p>
+</li>
+<li>
+<p><code>-n</code>: output file names</p>
+</li>
+<li>
+<p><code>-g</code>: genome size, with common ones already encoded in MACS eg. -g hs   =  -g 2.7e9; -g mm   =  -g 1.87e9; -g ce   =  -g 9e7; -g dm   =  -g 1.2e8. In our case <code>-g = 04.9e8</code> since we are still working on chromosomes 1 and 2 only</p>
+</li>
+<li>
+<p><code>-q</code> 0.01: q value (false discovery rate, FDR) cutoff for reporting peaks; this is recommended over reporting raw (un-adjusted) p values.</p>
+</li>
+</ul>
+<p>Let's run <code>MACS2</code> now. <code>MACS2</code> prints messages as it progresses through different stages of the process. This step may take more than 10 minutes.</p>
 <pre><code class="bash">module load MACS/2.1.0
 
 macs2 callpeak -t ENCFF000PED.preproc.bam -c ENCFF000PET.preproc.bam \
@@ -581,7 +615,7 @@ module unload MACS/2.1.0
 module unload python/2.7.6
 </code></pre>
 
-<p>The output of a MACS2 run consists of several files. To inspect files type</p>
+<p>The output of a <code>MACS2</code> run consists of several files. To inspect files type</p>
 <pre><code class="bash">head -n 50 &lt;filename&gt;
 </code></pre>
 
@@ -589,28 +623,43 @@ module unload python/2.7.6
 <pre><code class="bash">head -n 50 hela_1_REST.chr12.macs2_peaks.narrowPeak
 </code></pre>
 
-<p>These files are in <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED</a> format, one of the most popular file format in genomics, used to store information on genomic ranges such as ChIP-seq peaks, gene models, transcription starts sites, etc. BED files can be also used for visualisation in genome browsers, including the popular <a href="https://genome.ucsc.edu/cgi-bin/hgTracks">UCSC Genome Browser</a> and <a href="https://www.broadinstitute.org/igv">IGV</a>. We will try this later in <a href="#Visualisation">Visualisation</a> part.
-We can simplify the BED files by keeping only the first three most relevant columns e.g.</p>
+<p>These files are in <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED</a> format, one of the most used file formats in genomics, used to store information on genomic ranges such as ChIP-seq peaks, gene models, transcription starts sites, etc. <code>BED</code> files can be also used for visualisation in genome browsers, including the popular <a href="https://genome.ucsc.edu/cgi-bin/hgTracks">UCSC Genome Browser</a> and <a href="https://www.broadinstitute.org/igv">IGV</a>. We will try this later in <a href="#Visualisation">Visualisation</a> part.</p>
+<p>We can simplify the <code>BED</code> files by keeping only the first three most relevant columns e.g.</p>
 <pre><code class="bash">cut -f 1-3 hela_1_REST.chr12.macs2_peaks.narrowPeak &gt; hela_1_chr12_peaks.bed
 </code></pre>
 
-<p>Peaks detected on chromosomes 1 and 2 are present in directory <code>/results/peaks_bed</code>. These peaks were detected using complete (all chromosomes) data and therefore there may be some differences between the peaks present in the prepared <code>hela_1_peaks.bed</code> file compared to the peaks you have just detected. We suggest we use these pre-made peak BED files instead of the file you have just created. You can check how many peaks were detected in each library by listing number of lines in each file:</p>
+<p>Peaks detected on chromosomes 1 and 2 are present in directory <code>/results/peaks_bed</code>. These peaks were detected using complete (all chromosomes) data and therefore there may be some differences between the peaks present in the prepared file <code>hela_1_peaks.bed</code> compared to the peaks you have just detected. We suggest we use these pre-made peak BED files instead of the file you have just created. You can check how many peaks were detected in each library by listing number of lines in each file:</p>
 <pre><code class="bash">wc -l ../../results/peaks_bed/*.bed
 </code></pre>
 
 <pre><code class="bash">cp ../../results/peaks_bed/*.bed ./
 </code></pre>
 
-<p>What do you think?
-* can you see any patterns with number of peaks detected and libraries qualities?
-* can you see any patterns with number of peaks detected and samples clustering?</p>
+<p>What do you think?</p>
+<ul>
+<li>
+<p>can you see any patterns with number of peaks detected and library quality?</p>
+</li>
+<li>
+<p>can you see any patterns with number of peaks detected and samples clustering?</p>
+</li>
+</ul>
+<p><br /></p>
 <h3 id="reproducible-peaks">Reproducible peaks <a name="ReproduciblePeaks"></a></h3>
 <p>By checking for overlaps in the peak lists from different libraries one can detect <strong>peaks present across libraries</strong>. This gives an idea on which peaks are <strong>reproducible</strong> between replicates and can be calculated in many ways, e.g. with
 <a href="http://bedtools.readthedocs.org/en/latest/">BEDTools</a>, a suite of utilities developed for manipulation of BED files.</p>
-<p>In the command used here the arguments are:
-* -a, -b : two files to be intersected
-* -f 0.50 : fraction of the overlap between features in each file to be reported as an overlap
-* -r : reciprocal overlap fraction required</p>
+<p>In the command used here the arguments are:</p>
+<ul>
+<li>
+<p><code>-a</code>, <code>-b</code> : two files to be intersected</p>
+</li>
+<li>
+<p><code>-f 0.50</code>: fraction of the overlap between features in each file to be reported as an overlap</p>
+</li>
+<li>
+<p><code>-r</code> : reciprocal overlap fraction required</p>
+</li>
+</ul>
 <p>Let's select two replicates of the same condition to investigate the peaks overlap, e.g.</p>
 <pre><code class="bash">module load BEDTools/2.25.0
 
@@ -620,7 +669,7 @@ bedtools intersect -a hela_1_peaks.chr12.bed -b hela_2_peaks.chr12.bed -f 0.50 -
 wc -l peaks_hela.chr12.bed
 </code></pre>
 
-<p>This way one can compare peaks from replicates of the same condition and beyond, that is peaks present in different conditions. For the latter, we need to create files with peaks common to replicates for the cell types to be able to compare. For instance, to inspect reproducible peaks between HeLa and HepG2 we need run:</p>
+<p>This way one can compare peaks from replicates of the same condition and beyond, that is peaks present in different conditions. For the latter, we need to create files with peaks common to replicates for the cell types to be able to compare. For instance, to inspect reproducible peaks between HeLa and HepG2 we need to run:</p>
 <pre><code class="bash">bedtools intersect -a hepg2_1_peaks.chr12.bed -b hepg2_2_peaks.chr12.bed -f 0.50 -r \
 &gt; peaks_hepg2.chr12.bed
 
@@ -634,13 +683,22 @@ wc -l peaks_hepg2_hela.chr12.bed
 <pre><code class="bash">module unload BEDTools/2.25.0
 </code></pre>
 
-<p>So what about peaks reproducibility?
-* are peaks reproducible between replicates?
-* are peaks consistent across conditions?
-* any observations in respect to libraries quality and samples clustering?</p>
+<p>So what about peak reproducibility?</p>
+<ul>
+<li>
+<p>are peaks reproducible between replicates?</p>
+</li>
+<li>
+<p>are peaks consistent across conditions?</p>
+</li>
+<li>
+<p>any observations in respect to libraries quality and samples clustering?</p>
+</li>
+</ul>
+<p><br /></p>
 <h3 id="merged-peaks">Merged peaks <a name="MergedPeaks"></a></h3>
 <p>Now it is time to generate a merged list of all peaks detected in the experiment, i.e. to find a <strong>consensus peakset</strong> that can be used for down-stream analysis.</p>
-<p>This is typically done by selecting peaks by overlapping and reproducibility criteria. Often it may be good to set overlap criteria stringently in order to lower noise and drive down false positives. The presence of a peak across multiple samples is an indication that it is a "real" binding site, in the sense of being identifiable in a repeatable manner.</p>
+<p>This is typically done by selecting peaks by <strong>overlapping</strong> and <strong>reproducibility</strong> criteria. Often it may be good to set overlap criteria stringently in order to lower noise and drive down false positives. The presence of a peak across multiple samples is an indication that it is a "real" binding site, in the sense of being identifiable in a repeatable manner.</p>
 <p>Here, we will use a simple method of putting peaks together with <a href="http://bedops.readthedocs.org/en/latest/">BEDOPS</a> by preparing peakset in which all overlapping intervals are merged.  Files used in this step are derived from the <code>*.narrowPeak</code> files by selecting relevant columns, as before.</p>
 <p>These files are already prepared and are under <code>peak_calling</code> directory</p>
 <pre><code class="bash">module load BEDOPS/2.4.3
@@ -658,9 +716,10 @@ wc -l REST_peaks.chr12.bed
 <pre><code class="bash">ln -s ../../results/peaks_bed/rest_peaks.chr12.bed ./rest_peaks.chr12.bed
 </code></pre>
 
+<p><br /></p>
 <h3 id="quality-control-after-peak-calling">Quality control after peak calling <a name="QCPeaks"></a></h3>
-<p>Having a consensus peakset we can re-run samples clustering with deepTools using only peaks regions for the coverage analysis <a href="https://deeptools.readthedocs.io/en/latest/content/tools/multiBamSummary.html#id9">in BED mode</a>. This may be informative when looking at samples similarities with clustering and heatmaps and it typically done for ChIP-seq experiments. This also gives an indications whether peaks are consistent between replicates given the signal strength in peaks regions.</p>
-<p>Let's make a new directory to keep things organised and run <code>deepTools</code> in BED mode providing merged peakset we created:</p>
+<p>Having a consensus peakset we can re-run samples clustering with <code>deepTools</code> using only peak regions for the coverage analysis <a href="https://deeptools.readthedocs.io/en/latest/content/tools/multiBamSummary.html#id9">in BED mode</a>. This may be informative when looking at samples similarities with clustering and heatmaps and it typically done for ChIP-seq experiments. This also gives an indications whether peaks are consistent between replicates given the signal strength in peaks regions.</p>
+<p>Let's make a new directory to keep things organised and run <code>deepTools</code> in <code>BED</code> mode providing merged peakset we created:</p>
 <pre><code class="bash">mkdir ~/chipseq/analysis/plots
 cd ~/chipseq/analysis/plots
 
@@ -696,9 +755,16 @@ plotCorrelation --corData multiBamArray_bed_bam_chr12.npz \
 module unload deepTools/2.5.1
 </code></pre>
 
-<p>So what do you think?
-* Any differences in clustering results compared to bin mode?
-* Can you think about the clustering results in the context of all quality steps?</p>
+<p>So what do you think?</p>
+<ul>
+<li>
+<p>Any differences in clustering results compared to <code>bin</code> mode?</p>
+</li>
+<li>
+<p>Can you think about the clustering results in the context of all quality steps?</p>
+</li>
+</ul>
+<p><br /></p>
 <h2 id="part-iii-visualisation-of-mapped-reads-coverage-profies-and-peaks">Part III: Visualisation of mapped reads, coverage profies and peaks <a name="Visualisation"></a></h2>
 <p>In this part we will look more closely at our data, which is a good practice, as data summaries can be at times misleading. In princole we could look at the data on Uppmax using installed tools but it is so much easier to work with genome browser locally. If you have not done this before the course install Interactive Genome Browser <a href="https://www.broadinstitute.org/igv/">IGV</a>.</p>
 <p>We will view and need the following HeLa replicate 1 files:
@@ -752,6 +818,8 @@ less peaks_hela.chr12.bed
 <h2 id="summary">Summary <a name="Summary"></a></h2>
 <p>Congratulations!</p>
 <p>Now we know how to inspect ChIP-seq data and judge quality. If the data quality is good, we can continue with down-stream analysis as in next parts of this course. If not, well...better to repeat experiment than to waste resources on bad quality data.</p>
+<p><br />
+<br /></p>
 <hr />
 <h2 id="appendix">Appendix <a name="Appendix"></a></h2>
 <h3 id="figures-generated-during-class">Figures generated during class</h3>
