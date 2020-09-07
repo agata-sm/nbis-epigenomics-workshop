@@ -1,11 +1,11 @@
 # Epigenomics Data Analysis: from Bulk to Single Cell (NBIS workshop)
 
 
-This workshop is held in SciLifeLab Solna (room *Air*) ***OR*** online on 23rd - 27th November 2020. Please see [About](about.md) for details.
+This workshop is held online on 23rd - 27th November 2020. Please see [About](about.md) for details.
 
 **To apply**
 
-Go to SciLifeLab homepage for details and application. The deadline is the 1st November 2020.
+Go to SciLifeLab homepage for details and [application](https://www.scilifelab.se/event/epigenomics-data-analysis-from-bulk-to-single-cell-2020/). The deadline is the 1st November 2020.
 
 
 ## Workshop Content
@@ -29,7 +29,7 @@ Topis covered include:
 
 * Introduction to analysis of single cell epigenomics data (ATAC-seq);
 
-
+<!-- 
 
 ## Travel Info
 
@@ -41,4 +41,4 @@ The closest bus stop is called ***Karolinska Institutet Biomedicum*** (search fo
 
 Enter the SciLifeLab / Karolinska Institutet Science Park building. After entering, turn left and pass through the glass door to find the rooms *Air* and *Fire*, where the workshop takes place. You can ask for help in the reception if you cannot find the way.
 
-
+ -->
